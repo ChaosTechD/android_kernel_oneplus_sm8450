@@ -7035,6 +7035,7 @@ static int ufshcd_abort(struct scsi_cmnd *cmd)
 		"%s: cmd was completed, but without a notifying intr, tag = %d",
 		__func__, tag);
 		__ufshcd_transfer_req_compl(hba, 1UL << tag);
+		lrbp->cmd = NULL;
 		goto release;
 	}
 
